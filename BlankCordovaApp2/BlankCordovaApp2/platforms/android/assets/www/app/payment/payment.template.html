@@ -1,0 +1,123 @@
+﻿<ion-content class="padding">
+
+    <div class="row">
+        <div class="col">
+            <div class="bar bar-header bar-light" style="background-color:rgb(250,250,250)">
+                <a class="button icon-left ion-chevron-left button-clear button-dark" style="color:rgb(204,8,13)" ui-sref="home">Checkout</a>
+                <h1 class="title">Payment</h1>
+                <button class="button button-clear button-assertive">
+                    <b>Cancel</b>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="list list-inset">
+                <b>How would you like to Pay</b>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <ion-radio ng-model="ctrl.paymentType" ng-value="'PayOnCollection'">
+                <div class="row">
+                    <div class="col">
+
+                        <!--<a style="color:rgb(27,181,73)">
+                            <i class="ion-android-radio-button-on"></i>
+                        </a>-->
+                        <label ng-click="ctrl.payOnCollection()">Pay on collection</label>
+                    </div>
+                </div>
+            </ion-radio>
+            <ion-radio ng-model="ctrl.paymentType" ng-value="'PayByCard'">
+                <div class="row">
+                    <div class="col">
+                        <label ng-click="ctrl.payOnCollection()">Pay with Debit or Credit card</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <img src="images/visa-mastercard-icon.png" height="40" width="120" />
+                    </div>
+                </div>
+
+            </ion-radio>
+
+        </div>
+    </div>
+
+    <div class="row" ng-if="ctrl.paymentType=='PayByCard'">
+        <div class="col">
+            <b>Card</b>
+        </div>
+    </div>
+    <div class="row" style="background-color:rgb(250,250,250)" ng-if="ctrl.paymentType=='PayByCard'">
+        <div class="col">
+            <textarea sstyle="width:100%"></textarea>
+        </div>
+    </div>
+    <div class="row" ng-if="ctrl.paymentType=='PayByCard'">
+        <div class="col">
+            <a style="color:rgb(27,181,73)">
+                <i class="ion-ios-checkmark"></i>
+            </a>
+            Save my card details for quicker reordering
+        </div>
+    </div>
+    <div class="row" ng-if="ctrl.paymentType=='PayByCard'">
+        <div class="col">
+            <b>Expiry date</b>
+        </div>
+    </div>
+    <div class="row" style="background-color:rgb(250,250,250)" ng-if="ctrl.paymentType=='PayByCard'">
+        <div class="col">
+            <select>
+                <option>Jan</option>
+                <option selected>Feb</option>
+                <option>Mar</option>
+            </select>
+            <select>
+                <option>2015</option>
+                <option selected>2016</option>
+                <option>2017</option>
+            </select>
+        </div>
+    </div>
+    <div class="row" ng-if="ctrl.paymentType=='PayByCard'">
+        <div class="col">
+            <b>Security Number</b>
+        </div>
+    </div>
+
+    <div class="row" style="background-color:rgb(250,250,250)" ng-if="ctrl.paymentType=='PayByCard'">
+        <div class="col">
+            <textarea sstyle="width:20%"></textarea>
+        </div>
+    </div>
+    <div class="row" ng-if="ctrl.paymentType=='PayByCard'">
+        <div class="col">
+            <img src="images/three-digit.png" height="40" width="50" />
+        </div>
+    </div>
+    <div class="row" style="background-color:rgb(250,250,250)" ng-if="ctrl.paymentType=='PayByCard'">
+        <div class="col">
+            Last three digits on the back of your card
+        </div>
+    </div>
+    <div class="row" ng-if="ctrl.paymentType=='PayByCard'">
+        <div class="col">
+            <b>First Name</b>
+        </div>
+    </div>
+    <div class="row" style="background-color:rgb(250,250,250)" ng-if="ctrl.paymentType=='PayByCard'">
+        <div class="col">
+            <textarea sstyle="width:100%"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <button class="button" style="background-color:rgb(254,199,82);width:100%" ng-click="ctrl.goToConfirmationPage()">Continue</button>
+    </div>
+
+</ion-content>

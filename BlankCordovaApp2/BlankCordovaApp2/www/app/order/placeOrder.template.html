@@ -1,0 +1,155 @@
+<style>
+    .customIconSound {
+        font-size: 30px;
+    }
+    .color-orange{
+        color: rgb(254,199,82);
+        
+     }
+
+    .color-red{
+        color: rgb(204,8,13);
+
+    }
+    .color-white{
+        color: rgb(220,220,220);
+     }
+
+    .color-light-grey{
+        background-color: rgb(250,250,250);
+     }
+
+    .color-green{
+        color: rgb(47,150,0);
+     }
+
+</style>
+<ion-content class="padding">
+    <!--<ion-header-bar class="bar-stable">
+    </ion-header-bar>-->
+
+        <div class="row">
+            <div class="col col-30">
+                <a class="button icon-left ion-chevron-left button-clear button-dark" style="color:rgb(204,8,13)" ui-sref="home" >Back</a>
+            </div>
+            <div class="col col-40">
+                <button class="button button-assertive" style="background-color:rgb(204,8,13);width:80%">
+                    Just Eat
+                </button> 
+            </div>
+            <div class="col col-30">
+                <div class="buttons color-orange">
+                    <button class="button" style="background-color:rgb(254,199,82);width:100%" ng-click="ctrl.goToCheckout()" ng-disabled="ctrl.totalQty == 0" >                        
+                            <i class="ion-ios-cart-outline"></i>                        
+                    &pound;{{ctrl.totalPrice}}   ({{ctrl.totalQty}})
+                    </button>
+                </div>                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col "></div>
+            <div class="col "><b>Byron Avenue</b></div>
+            <div class="col" style="color: rgb(153,153,153)">Minimum &pound;4.5</div>
+        </div>
+        <!--<div class="row">
+            <div class="col "></div>
+            <div class="col ">Monday Meal</div>
+            <div class="col">Aloo Gobi + Dal</div>
+
+        </div>-->
+    <ion-list>
+        <ion-item class="item item-divider">
+            Meal
+        </ion-item>
+        <ion-item ng-repeat="item in ctrl.main" class="item">
+            <div class="row">
+                <div class="col col-50">
+                    {{item.name}}
+                </div>
+                <div class="col">
+                    {{item.weight}}
+                </div>
+                <div class="col">
+                    &pound;{{item.price}}
+                </div>
+                <div class="col">
+                    <a class="" myclick="ctrl.add(item)">
+                        <i class="ion-plus-circled customIconSound color-orange"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="row color-light-grey" ng-if="item.qty>0">
+                <div class="col col-5">
+                    <a class="" myclick="ctrl.remove(item)">
+                        <i class="ion-minus-circled customIconSound color-white"></i>
+                    </a>
+                </div>
+                <div class="col col-5"></div>
+                <div class="col col-5 color-green">
+                    &pound;{{item.price}}
+                </div>
+                <div class="col col-5 color-green">
+                    <a class="">
+                        <i class="ion-checkmark-round color-green"></i>
+                    </a>
+                </div>
+                <div class="col col-60">
+
+                </div>
+                <div class="col col-15 color-green">
+                    {{item.qty}}
+                </div>
+            </div>
+        </ion-item>
+        <ion-item class="item item-divider">
+            Desserts
+        </ion-item>
+        <ion-item ng-repeat="item in ctrl.desserts" class="item">
+            <div class="row">
+                <div class="col col-50">
+                    {{item.name}}
+                </div>
+                <div class="col">
+                    {{item.weight}}
+                </div>
+                <div class="col ">
+                    &pound;{{item.price}}
+                </div>
+                <div class="col">
+                    <a class="" myclick="ctrl.add(item)">
+                        <i class="ion-plus-circled customIconSound color-orange"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="row color-light-grey" ng-if="item.qty>0">
+                <div class="col col-5">
+                    <a class="" myclick="ctrl.remove(item)">
+                        <i class="ion-minus-circled customIconSound color-white"></i>
+                    </a>
+
+                </div>
+                <div class="col col-5"></div>
+                <div class="col col-5 color-green">
+                    &pound;{{item.price}}
+                </div>
+                <div class="col col-5">
+                    <a class="">
+                        <i class="ion-checkmark-round color-green"></i>
+                    </a>
+
+                </div>
+                <div class="col col-60">
+
+                </div>
+                <div class="col col-10 color-green">
+                    {{item.qty}}
+                </div>
+                <div class="col col-10">
+
+                </div>
+            </div>
+        </ion-item>
+
+        </ion-list>
+
+</ion-content>

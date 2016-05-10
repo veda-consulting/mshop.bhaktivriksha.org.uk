@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--<base href="/android_asset/www/" />-->
+    <meta charset="utf-8" />
+
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://bhakthivrikshaapp.azurewebsites.net 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <title>BlankCordovaApp2</title>
+
+    <!-- BlankCordovaApp2 references -->
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/ionic.css" rel="stylesheet" />
+</head>
+<body>   
+
+    <div ng-app="PrasadApp">
+        <ion-pane>
+            <ui-view class="has-header"></ui-view> <!--Todo : change from ui-view to <ion-nav-view -->
+        </ion-pane>
+    </div>
+
+
+    <!-- Cordova reference, this is added to your app when it's built. -->
+    <script src="cordova.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
+
+    <script src="scripts/index.js"></script>
+    <!--<script type="text/javascript" src="scripts/angular/angular.js"></script>
+    <script type="text/javascript" src="scripts/angular/angular-ui-router.min.js"></script>    
+    <script type="text/javascript" src="scripts/angular/angular-animate.min.js"></script>
+    <script type="text/javascript" src="scripts/angular/angular-sanitize.min.js"></script>-->  
+      
+    
+    <script type="text/javascript" src="bower_components/ionic/js/ionic.bundle.min.js"></script>    
+
+    <script src="app/app.module.js"></script>
+    <script src="app/home/home.controller.js"></script>
+    <script src="app/home/home.directive.js"></script>
+
+
+    <script  src="app/apiwrapper.js"></script>
+    <script  src="app/order/placeOrder.controller.js"></script>
+    <script  src="app/order/placeOrder.directive.js"></script>
+    <script  src="app/checkout/checkout.controller.js"></script>
+    <script  src="app/checkout/checkout.directive.js"></script>
+    <script  src="app/checkout/checkoutContinue.controller.js"></script>
+    <script  src="app/checkout/checkoutContinue.directive.js"></script>
+    
+    <script  src="app/login/login.directive.js"></script>
+    <script  src="app/login/login.controller.js"></script>
+    
+    <script  src="app/payment/payment.directive.js"></script>
+    <script  src="app/payment/payment.controller.js"></script>
+    
+    <script  src="app/confirmation/confirmation.directive.js"></script>
+    <script  src="app/confirmation/confirmation.controller.js"></script>
+    
+    <script  src="app/confirmation/orderConfirmed.directive.js"></script>
+    <script  src="app/confirmation/orderConfirmed.controller.js"></script>
+
+    
+        <!--<div ui-view></div>-->
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<ion-content class="padding">
+    <div class="row">
+        <div class="col">
+            <div class="bar bar-header bar-light" style="background-color:rgb(250,250,250)">
+                <h1 class="title">Log in</h1>
+                <button class="button button-clear button-assertive">
+                    <b>Cancel</b>
+                </button>
+            </div>
+        </div>
+    </div>
+  
+    <div class="row">
+        <div class="col">
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <input type="text" placeholder="Email" ng-model="data.username">
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="Password" ng-model="data.password">
+                </label>
+            </div>
+            <button class="button" style="background-color:rgb(254,199,82);width:100%" ng-click="ctrl.authenticate()" ng-disabled="true">Login</button>
+        </div>
+    </div>
+    <div style="background-color:rgb(250,250,250);width:100%">
+        <!--<div class="row">
+            <div class="col col-10"></div>
+            <div class="col col-80">
+                <button class="button button-clear button-assertive">
+                    <b>Forgot your password?</b>
+                </button>
+            </div>
+            <div class="col col-10"></div>
+        </div>-->
+        <div class="row">
+            <div class="col col-10"></div>
+            <div class="col col-80">
+                <button class="button button-clear button-assertive">
+                    <b>Click on checkout as guest</b>
+                </button>
+            </div>
+            <div class="col col-10"></div>
+        </div>
+        <div class="row">
+            <button class="button button-block button-stable button-outline" ng-disabled="false">
+                Create acccount
+            </button>
+            <button class="button button-block button-stable button-outline" ng-click="ctrl.continueAsGuest()">
+                Checkout as guest
+            </button>
+        </div>
+        
+        
+    </div>
+</ion-content>
