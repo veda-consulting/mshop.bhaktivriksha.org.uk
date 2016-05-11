@@ -1,0 +1,174 @@
+﻿<style>
+    .spinner svg {
+        width: 19% !important;
+        height: 85px !important;
+    }
+
+    label.item.has-error {
+        border-bottom: 2px solid red;
+    }
+
+    label.item.has-error-lr {
+        border-left: 2px solid red;
+        border-right: 2px solid red;
+    }
+
+    label.item.valid-lr {
+        border-left: 2px solid green;
+        border-right: 2px solid green;
+    }
+
+    .form-errors {
+        margin: 5px 0;
+    }
+
+    .form-error {
+        padding: 2px 0 2px 16px;
+        color: red;
+    }
+</style>
+
+
+
+<ion-content class="padding">
+    <div class="row">
+        <div class="col">
+
+            <div class="bar bar-header bar-light" style="background-color:rgb(250,250,250)">
+                <h1 class="title">Checkout</h1>
+                <button class="button button-clear button-assertive">
+                    <b>Cancel</b>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <div class="list list-inset">
+                <form name="userDetails" novalidate>
+                    <label class="item item-input"
+                           ng-class="{ 'has-error' : userDetails.firstName.$invalid}">
+                        <span class="input-label">First Name</span>
+                        <input type="text"
+                               name="firstName"
+                               ng-model="ctrl.firstName"
+                               ng-minlength="2"
+                               ng-maxlength="20"
+                               required>
+                    </label>
+                    <div class="form-errors" ng-messages="userDetails.firstName.$error" ng-messages-include="templates/form-errors.html">
+                        <div class="form-error" ng-if="userDetails.firstName.$error.maxlength" ng-message="maxlength">Max length has been exceeded</div>
+                        <div class="form-error" ng-if="userDetails.firstName.$error.minlength" ng-message="minlength">First name  should be atleast 2 characterters</div>
+                        <div class="form-error" ng-if="userDetails.firstName.$error.required" ng-message="required">First name is required</div>
+                    </div>
+                    <!--Last Name-->
+                    <label class="item item-input"
+                           ng-class="{ 'has-error' : userDetails.lastname.$invalid}">
+                        <span class="input-label">Last Name</span>
+                        <input type="text"
+                               name="lastname"
+                               ng-model="ctrl.lastName"
+                               ng-minlength="2"
+                               ng-maxlength="20"
+                               required>
+                    </label>
+                    <div class="form-errors" ng-messages="userDetails.lastname.$error" ng-messages-include="templates/form-errors.html">
+                        <div class="form-error" ng-if="userDetails.lastname.$error.maxlength" ng-message="maxlength">Max length has been exceeded</div>
+                        <div class="form-error" ng-if="userDetails.lastname.$error.minlength" ng-message="minlength">Last name  should be atleast 2 characterters</div>
+                        <div class="form-error" ng-if="userDetails.lastname.$error.required" ng-message="required">Last name is required</div>
+                    </div>
+                    <!--Addr Line 1-->
+                    <label class="item item-input"
+                           ng-class="{ 'has-error' : userDetails.addrLine1.$invalid}">
+                        <span class="input-label">Addr Line 1</span>
+                        <input type="text"
+                               name="addrLine1"
+                               ng-model="ctrl.addrLine1"
+                               ng-minlength="5"
+                               ng-maxlength="20"
+                               required>
+                    </label>
+                    <div class="form-errors" ng-messages="userDetails.addrLine1.$error" ng-messages-include="templates/form-errors.html">
+                        <div class="form-error" ng-if="userDetails.addrLine1.$error.maxlength" ng-message="maxlength">Max length has been exceeded</div>
+                        <div class="form-error" ng-if="userDetails.addrLine1.$error.minlength" ng-message="minlength">Addr Line1  should be atleast 5 characterters</div>
+                        <div class="form-error" ng-if="userDetails.addrLine1.$error.required" ng-message="required">Addr Line 1 is required</div>
+                    </div>
+                    <!--Addre line 2-->
+                    <label class="item item-input"
+                           ng-class="{ 'has-error' : userDetails.addrLine2.$invalid}">
+                        <span class="input-label">Addr Line 2</span>
+                        <input type="text"
+                               name="addrLine2"
+                               ng-model="ctrl.addrLine2"
+                               ng-minlength="5"
+                               ng-maxlength="20"
+                               required>
+                    </label>
+                    <div class="form-errors" ng-messages="userDetails.addrLine2.$error" ng-messages-include="templates/form-errors.html">
+                        <div class="form-error" ng-if="userDetails.addrLine2.$error.maxlength" ng-message="maxlength">Max length has been exceeded</div>
+                        <div class="form-error" ng-if="userDetails.addrLine2.$error.minlength" ng-message="minlength">Addr Line 2  should be atleast 5 characterters</div>
+                        <div class="form-error" ng-if="userDetails.addrLine2.$error.required" ng-message="required">Addr Line 2 is required</div>
+                    </div>
+                    <!-- Postcode-->
+                    <label class="item item-input"
+                           ng-class="{ 'has-error' : userDetails.postcode.$invalid}">
+                        <span class="input-label">Postcode</span>
+                        <input type="text"
+                               name="postcode"
+                               ng-model="ctrl.postcode"
+                               ng-minlength="6"
+                               ng-maxlength="8"
+                               required>
+                    </label>
+                    <div class="form-errors" ng-messages="userDetails.postcode.$error" ng-messages-include="templates/form-errors.html">
+                        <div class="form-error" ng-if="userDetails.postcode.$error.maxlength" ng-message="maxlength">Max length has been exceeded</div>
+                        <div class="form-error" ng-if="userDetails.postcode.$error.minlength" ng-message="minlength">Postcode  should be atleast 6 characterters</div>
+                        <div class="form-error" ng-if="userDetails.postcode.$error.required" ng-message="required">Postcode is required</div>
+                    </div>
+                    <!--Phone-->
+                    <label class="item item-input"
+                           ng-class="{ 'has-error' : userDetails.phone.$invalid}">
+                        <span class="input-label">Phone</span>
+                        <input type="number"
+                               name="phone"
+                               ng-model="ctrl.phone"
+                               ng-minlength="11"
+                               ng-maxlength="11"
+                               required>
+                    </label>
+                    <div class="form-errors" ng-messages="userDetails.phone.$error" ng-messages-include="templates/form-errors.html">
+                        <div class="form-error" ng-if="userDetails.phone.$error.maxlength" ng-message="maxlength">Phone should be 11 digits</div>
+                        <div class="form-error" ng-if="userDetails.phone.$error.minlength" ng-message="minlength">Phone should be 11 digits</div>
+                        <div class="form-error" ng-if="userDetails.phone.$error.required" ng-message="required">Phone is required</div>
+                    </div>
+                </form>
+                <p ng-show="myForm.firstName.$error.required">* First Name is required</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <b>Add a note(e.g. Do not offer,allergies)</b>
+        </div>
+    </div>
+    <div class="row" style="background-color:rgb(250,250,250)">
+        <div class="col">
+            <textarea sstyle="width:100%" mg-model="ctrl.notes"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            Send me tasty takeway offers ( we do not sell your details to third parties)
+            <a style="color:rgb(27,181,73)">
+                <i class="ion-ios-checkmark"></i>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <button class="button" ng-disabled="userDetails.$valid==false" style="background-color:rgb(254,199,82);width:100%" ng-click="ctrl.goToPayment()">Continue to Payment</button>
+    </div>
+    
+</ion-content>

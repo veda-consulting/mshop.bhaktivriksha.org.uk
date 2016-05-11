@@ -1,0 +1,82 @@
+﻿<!--<div>Checkout page work in progress </div>
+<ul>
+    <li ng-repeat="item in ctrl.cartItems">
+        {{item.name}}  {{item.qty}}
+    </li>
+</ul>
+
+<button class="button" style="background-color:rgb(254,199,82);width:100%" ng-click="ctrl.goToLogin()">
+    Checkout
+</button>-->
+<style>
+    .customIconSound {
+        font-size: 30px;
+    }
+
+    .color-orange {
+        color: rgb(254,199,82);
+    }
+
+    .color-red {
+        color: rgb(204,8,13);
+    }
+
+    .color-white {
+        color: rgb(220,220,220);
+    }
+
+    .color-light-grey {
+        background-color: rgb(250,250,250);
+    }
+
+    .color-green {
+        color: rgb(47,150,0);
+    }
+</style>
+
+
+
+<ion-content class="padding">
+    <div class="row">
+        <div class="col col-30">
+            <a class="button icon-left ion-chevron-left button-clear button-dark" style="color:rgb(204,8,13)" ui-sref="home">Back</a>
+        </div>
+        <div class="col col-40">
+            <button class="button button-assertive" style="background-color:rgb(204,8,13);width:80%">
+                Just Eat
+            </button>
+        </div>
+        <div class="col col-30">
+            <button class="button button-clear button-positive">Edit</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-20"></div>
+        <div class="col col-60">Order total({{ctrl.totalItems}} item(s))</div>
+        <div class="col col-20"></div>
+    </div>
+    <div class="row">
+        <div class="col "></div>
+        <div class="col "><h2><b>&pound;{{ctrl.totalPrice | setDecimal:2}}</b></h2></div>
+        <div class="col"></div>
+    </div>
+    
+        <ion-list>
+            <ion-item ng-repeat="item in ctrl.cartItems" class="item">
+                <div class="row">
+                    <div class="col">{{item.name}}</div>
+                    <div class="col">{{item.qty}}</div>
+                    <div class="col">&pound;{{item.qty*item.price  | setDecimal:2 }}</div>
+                </div>
+            </ion-item>
+        </ion-list>
+    
+    <div class="row">
+        <button class="button button-block button-energized" ng-click="ctrl.goToLogin()" ng-disabled="ctrl.totalPrice < 5">
+            Go to checkout
+        </button>
+    </div>
+
+
+</ion-content>

@@ -1,0 +1,56 @@
+﻿<ion-content class="padding">
+    <div class="row">
+        <div class="col">
+            Confirmation
+        </div>
+    </div>
+    <ion-list>
+        <ion-item class="item item-divider">
+            Ordered Items
+        </ion-item>
+        <ion-item ng-repeat="item in ctrl.cartItems" class="item">
+            <div class="row">
+                <div class="col col-50">
+                    {{item.name}}
+                </div>
+                <div class="col">
+                    {{item.qty}}
+                </div>
+                <div class="col">
+                    &pound;{{item.price}}
+                </div>
+            </div>
+    </ion-list>
+    Total Price {{ctrl.totalPrice}}
+    
+
+    <div class="list">
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">First Name</span>
+            <input type="text" ng-model="ctrl.user.firstName">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Last Name</span>
+            <input type="text" ng-model="ctrl.user.lastName">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Phone number</span>
+            <input type="text" ng-model="ctrl.user.phone">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Address Line 1</span>
+            <input type="text" ng-model="ctrl.user.addrLine1">
+        </label>     
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Address Line 2</span>
+            <input type="text" ng-model="ctrl.user.addrLine2">
+        </label>
+        <label class="item item-input item-stacked-label">
+            <span class="input-label">Postcode</span>
+            <input type="text" ng-model="ctrl.user.postcode">
+        </label>
+    </div>
+    <div class="row">
+        <button class="button" style="background-color:rgb(254,199,82);width:100%" ng-click="ctrl.goToOrderConfirmedPage()">Continue</button>
+    </div>
+</ion-content>
