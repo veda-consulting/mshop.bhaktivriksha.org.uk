@@ -8,10 +8,12 @@ function login($scope, $rootScope, retrieveData, $location, $http) {
     ctrl.cartItems = retrieveData.get();
     ctrl.totalQty = 0;
     ctrl.totalPrice = 0;
+    ctrl.showLoader = false;
     var i= 0;
 
     ctrl.goToOrderConfirmedPage = function()
     {
+        ctrl.showLoader = true;
 
         var req = {
             method: 'POST',
@@ -31,28 +33,22 @@ function login($scope, $rootScope, retrieveData, $location, $http) {
                 emailFrom: 'deepti.kn@gmail.com',
                 emailsubject: 'Hare Krishna',
                 emailmessage: 'HKHK'
-            }
-            //{ test: { user: ctrl.user, cartItems: ctrl.cartItems } }
+            }          
         };
 
-        $http(req).then(function () { alert('Successfully placed order'); }, function () { alert('Failed in sending email');});
-
-
-        //alert('Firstname' +ctrl.user.firstName);
-        //alert('LastName' + ctrl.user.lastName);
-        //alert(ctrl.user.phone);
-        //alert(ctrl.user.addrLine1);
-        //alert(ctrl.user.addrLine2);
-        //alert(ctrl.user.postcode);
-        //ctrl.cartItems.forEach(function (item) {
-        //    alert(item.name);
-        //    alert(item.qty);
-        //});
-
-        // ctrl.cartItems - contains the order items ;
-
-        // Integrate email code here:
-        $location.path("orderConfirmed");
+        $http(req).then(function ()
+        {
+            ctrl.showLoader = false;
+            alert('Successfully placed order');
+            $location.path("home");
+        },
+        function ()
+        {
+            ctrl.showLoader = false;
+            alert('Failed in sending email');
+            $location.path("home");
+        });       
+        
     }
     ctrl.cartItems.forEach(function (item) {
         ctrl.totalQty = ctrl.totalQty + item.qty;
