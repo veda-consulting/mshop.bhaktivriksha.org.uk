@@ -41,15 +41,16 @@
                 <div class="buttons color-orange">
                     <button class="button" style="background-color:rgb(254,199,82);width:100%" ng-click="ctrl.goToCheckout()" ng-disabled="ctrl.totalQty == 0" >                        
                             <i class="ion-ios-cart-outline"></i>                        
-                    &pound;{{ctrl.totalPrice}}   ({{ctrl.totalQty}})
+                        <!--Made change to display price as two decimal - DP-->
+                    &pound;{{ctrl.totalPrice| number:2}}   ({{ctrl.totalQty}})
                     </button>
                 </div>                
             </div>
         </div>
         <div class="row">
-            <div class="col "></div>
-            <div class="col "><b>Byron Avenue</b></div>
-            <div class="col" style="color: rgb(153,153,153)">Minimum &pound;4.5</div>
+            <div class="col"></div>
+            <div class="col"><b>Byron Avenue</b></div>
+            <div class="col" style="color: rgb(153,153,153)">Minimum &pound;4.50</div>
         </div>
         <!--<div class="row">
             <div class="col "></div>
@@ -70,7 +71,8 @@
                     {{item.weight}}
                 </div>
                 <div class="col">
-                    &pound;{{item.price}}
+                    <!--Made change to display price as two decimal - DP-->
+                    &pound;{{item.price | number:2}}
                 </div>
                 <div class="col">
                     <a class="" myclick="ctrl.add(item)">
@@ -86,7 +88,8 @@
                 </div>
                 <div class="col col-5"></div>
                 <div class="col col-5 color-green">
-                    &pound;{{item.price}}
+                    <!--Made change to display price as two decimal - DP-->
+                    &pound;{{item.price | number:2}}
                 </div>
                 <div class="col col-5 color-green">
                     <a class="">
@@ -113,7 +116,8 @@
                     {{item.weight}}
                 </div>
                 <div class="col ">
-                    &pound;{{item.price}}
+                    <!--Made change to display price as two decimal - DP-->
+                    &pound;{{item.price | number:2}}
                 </div>
                 <div class="col">
                     <a class="" myclick="ctrl.add(item)">
@@ -130,7 +134,8 @@
                 </div>
                 <div class="col col-5"></div>
                 <div class="col col-5 color-green">
-                    &pound;{{item.price}}
+                    <!--Made change to display price as two decimal - DP-->
+                    &pound;{{item.price | number:2}}
                 </div>
                 <div class="col col-5">
                     <a class="">

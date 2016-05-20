@@ -58,20 +58,23 @@
     </div>
     <div class="row">
         <div class="col "></div>
-        <div class="col "><h2><b>&pound;{{ctrl.totalPrice | setDecimal:2}}</b></h2></div>
+        <!--Made change to display price as two decimal - DP-->
+        <div class="col "><h2><b>&pound;{{ctrl.totalPrice | number:2}}</b></h2></div>
         <div class="col"></div>
     </div>
-    
-        <ion-list>
-            <ion-item ng-repeat="item in ctrl.cartItems" class="item">
-                <div class="row">
-                    <div class="col">{{item.name}}</div>
-                    <div class="col">{{item.qty}}</div>
-                    <div class="col">&pound;{{item.qty*item.price  | setDecimal:2 }}</div>
-                </div>
-            </ion-item>
-        </ion-list>
-    
+    <ion-list>
+        <ion-item ng-repeat="item in ctrl.cartItems" class="item">
+            <div class="row">
+                <!-- START - Made change to display column width as 33% - DP-->
+                <div class="col-33"><p class="alignleft">{{item.name}}</p></div>
+                <div class="col-33"><p class="alignright">{{item.qty}}</p></div>
+                <!--Made change to display price as two decimal - DP-->
+                <div class="col-33"><p class="alignright">&pound;{{item.qty*item.price  | number:2 }}</p></div>
+                <!-- END - Made change to display column width as 33% - DP-->
+            </div>
+        </ion-item>
+    </ion-list>
+
     <div class="row">
         <button class="button button-block button-energized" ng-click="ctrl.goToLogin()" ng-disabled="ctrl.totalPrice < 5">
             Go to checkout
