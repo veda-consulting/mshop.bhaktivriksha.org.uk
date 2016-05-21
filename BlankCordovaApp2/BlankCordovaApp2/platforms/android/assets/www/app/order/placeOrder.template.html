@@ -2,79 +2,78 @@
     .customIconSound {
         font-size: 30px;
     }
-    .color-orange{
+
+    .color-orange {
         color: rgb(254,199,82);
-        
-     }
-
-    .color-red{
-        color: rgb(204,8,13);
-
     }
-    .color-white{
+
+    .color-red {
+        color: rgb(204,8,13);
+    }
+
+    .color-white {
         color: rgb(220,220,220);
-     }
+    }
 
-    .color-light-grey{
+    .color-light-grey {
         background-color: rgb(250,250,250);
-     }
+    }
 
-    .color-green{
+    .color-green {
         color: rgb(47,150,0);
-     }
-
+    }
 </style>
 <ion-content class="padding">
     <!--<ion-header-bar class="bar-stable">
     </ion-header-bar>-->
 
-        <div class="row">
-            <div class="col col-30">
-                <a class="button icon-left ion-chevron-left button-clear button-dark" style="color:rgb(204,8,13)" ui-sref="home" >Back</a>
-            </div>
-            <div class="col col-40">
-                <button class="button button-assertive" style="background-color:rgb(204,8,13);width:80%">
-                    Just Eat
-                </button> 
-            </div>
-            <div class="col col-30">
-                <div class="buttons color-orange">
-                    <button class="button" style="background-color:rgb(254,199,82);width:100%" ng-click="ctrl.goToCheckout()" ng-disabled="ctrl.totalQty == 0" >                        
-                            <i class="ion-ios-cart-outline"></i>                        
-                        <!--Made change to display price as two decimal - DP-->
+    <div class="row">
+        <div class="col col-25">
+            <a class="button icon-left ion-chevron-left button-clear button-dark" style="color:rgb(204,8,13)" ui-sref="home">Back</a>
+        </div>
+        <div class="col col-30">
+            <button class="button button-assertive" style="background-color:rgb(204,8,13);width:100%;font-size:medium">
+                Prashad
+            </button>
+        </div>
+        <div class="col col-45">
+            <div class="buttons color-orange">
+                <button class="button" style="background-color:rgb(254,199,82);width:100%;font-size:medium" ng-click="ctrl.goToCheckout()" ng-disabled="ctrl.totalQty == 0">
+                    <i class="ion-ios-cart-outline"></i>
+                    <!--Made change to display price as two decimal - DP-->
                     &pound;{{ctrl.totalPrice| number:2}}   ({{ctrl.totalQty}})
-                    </button>
-                </div>                
+                </button>
             </div>
         </div>
-        <div class="row">
-            <div class="col"></div>
-            <div class="col"><b>Byron Avenue</b></div>
-            <div class="col" style="color: rgb(153,153,153)">Minimum &pound;4.50</div>
-        </div>
-        <!--<div class="row">
-            <div class="col "></div>
-            <div class="col ">Monday Meal</div>
-            <div class="col">Aloo Gobi + Dal</div>
+    </div>
+    <div class="row">
+        <div class="col col-10"></div>
+        <div class="col col-40"><b>Byron Avenue</b></div>
+        <div class="col col-50" style="color: rgb(153,153,153)">Minimum &pound;4.50</div>
+    </div>
+    <!--<div class="row">
+        <div class="col "></div>
+        <div class="col ">Monday Meal</div>
+        <div class="col">Aloo Gobi + Dal</div>
 
-        </div>-->
+    </div>-->
     <ion-list>
         <ion-item class="item item-divider">
-            Meal
+            Lunch
         </ion-item>
         <ion-item ng-repeat="item in ctrl.main" class="item">
             <div class="row">
                 <div class="col col-50">
-                    {{item.name}}
+                    <p class="alignleft">{{item.name}}</p>
                 </div>
-                <div class="col">
-                    {{item.weight}}
+                <div class="col col-10">
+                    <p class="alignleft">{{item.weight}}</p>
                 </div>
-                <div class="col">
+                <div class="col col-15">
                     <!--Made change to display price as two decimal - DP-->
-                    &pound;{{item.price | number:2}}
+                    <p class="alignright">&pound;{{item.price | number:2}}</p>
                 </div>
-                <div class="col">
+                <div class="col col-10">
                     <a class="" myclick="ctrl.add(item)">
                         <i class="ion-plus-circled customIconSound color-orange"></i>
                     </a>
@@ -96,30 +95,33 @@
                         <i class="ion-checkmark-round color-green"></i>
                     </a>
                 </div>
-                <div class="col col-60">
+                <div class="col col-20">
 
                 </div>
-                <div class="col col-15 color-green">
+                <div class="col col-50 color-green">
                     {{item.qty}}
+                </div>
+                <div class="col col-10">
+
                 </div>
             </div>
         </ion-item>
         <ion-item class="item item-divider">
-            Desserts
+            Dinner
         </ion-item>
         <ion-item ng-repeat="item in ctrl.desserts" class="item">
             <div class="row">
                 <div class="col col-50">
-                    {{item.name}}
+                    <p class="alignleft">{{item.name}}</p>
                 </div>
-                <div class="col">
-                    {{item.weight}}
+                <div class="col col-10">
+                    <p class="alignleft">{{item.weight}}</p>
                 </div>
-                <div class="col ">
+                <div class="col col-15">
                     <!--Made change to display price as two decimal - DP-->
-                    &pound;{{item.price | number:2}}
+                    <p class="alignright">&pound;{{item.price | number:2}}</p>
                 </div>
-                <div class="col">
+                <div class="col col-10">
                     <a class="" myclick="ctrl.add(item)">
                         <i class="ion-plus-circled customIconSound color-orange"></i>
                     </a>
@@ -143,10 +145,10 @@
                     </a>
 
                 </div>
-                <div class="col col-60">
+                <div class="col col-20">
 
                 </div>
-                <div class="col col-10 color-green">
+                <div class="col col-50 color-green">
                     {{item.qty}}
                 </div>
                 <div class="col col-10">
@@ -155,6 +157,6 @@
             </div>
         </ion-item>
 
-        </ion-list>
+    </ion-list>
 
 </ion-content>

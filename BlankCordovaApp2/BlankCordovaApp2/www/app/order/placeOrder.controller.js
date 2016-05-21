@@ -3,26 +3,101 @@
 
 angular
 .module('PrasadApp')
-.controller('placeOrder.controller', ['$scope', '$rootScope', '$location', 'retrieveData', placeOrder]);
+.controller('placeOrder.controller', ['$scope', '$rootScope', '$location', 'retrieveData','$http','$ionicLoading', placeOrder]);
 
 
 
-function placeOrder($scope, $rootScope, $location, retrieveData) {
+function placeOrder($scope, $rootScope, $location, retrieveData,$http,$ionicLoading) {
 
     var ctrl = this;
     retrieveData.get();
     ctrl.cartItems = [];
+    ctrl.items = [];
 
-    // Stub data
+    ctrl.displayLoaderLunch = false;
+    ctrl.displayLoaderDinner = false;
+    $scope.show = function () {
+        $ionicLoading.show({
+            template: 'Loading...'
+        })
+    };
+    $scope.hide = function () {
+
+        if (ctrl.displayLoaderLunch == false && ctrl.displayLoaderDinner == false)
+        {
+            $ionicLoading.hide();
+        }
+        
+    };
+   
+    ctrl.displayLoaderLunch = true;
+    ctrl.displayLoaderDinner = true;
+
+    $scope.show();
+    $http({
+        method: 'GET',
+        url: 'http://shop.bhaktivriksha.org.uk/test/entity_commerce_product.json?parameters[type]=dinner&fields=title,sku,commerce_price',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).success(function(data) {
+        
+        
+        
+        var i = 0;        
+        for (i = 0; i < data.length; i++)
+        {
+            var item = data[i];
+            ctrl.items.push({
+                sku: item.sku,
+                name: item.title,
+                price: item.commerce_price.und[0].amount/100,
+                category:'dinner'
+            });
+        }
+      
+        ctrl.category = 'dinner';
+        ctrl.desserts = ctrl.items.filter(filterCategory);
+        ctrl.displayLoaderDinner = false;
+        $scope.hide();
+    }, function errorCallback(response) {
+       
+        ctrl.displayLoaderDinner = false;
+        alert('error');
+        $scope.hide();
+    });
+  
 
 
-    ctrl.items = BhaktivrikshaAppOperations.Components.MenuItems();
+    $http({
+        method: 'GET',
+        url: 'http://shop.bhaktivriksha.org.uk/test/entity_commerce_product.json?parameters[type]=lunch&fields=title,sku,commerce_price',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).success(function (data) {
+                ctrl.main = [];
+        var i = 0;
+        for (i = 0; i < data.length; i++) {
+            var item = data[i];
+            ctrl.main.push({
+                sku: item.sku,
+                name: item.title,
+                price: item.commerce_price.und[0].amount / 100,
+                category: 'lunch'
+            });
+        }
+        ctrl.category = 'lunch';
+        ctrl.main = ctrl.main.filter(filterCategory);
+        ctrl.displayLoaderLunch = false;
+      
+       $scope.hide();
+    }, function errorCallback(response) {
 
-    ctrl.category = 'Main';
-    ctrl.main = ctrl.items.filter(filterCategory);
-    ctrl.category = 'Desserts';
-    ctrl.desserts = ctrl.items.filter(filterCategory);
-
+        ctrl.displayLoaderLunch = false;
+        alert('error');
+        $scope.hide();
+    });
 
     function filterCategory(item) {
         item.qty = 0;
@@ -33,14 +108,13 @@ function placeOrder($scope, $rootScope, $location, retrieveData) {
     ctrl.hideItem = false;
 
     ctrl.calc = function () {
-        
+
         var tot = 0;
         for (i = 0; i < ctrl.main.length; i++) {
             var item = ctrl.main[i];
-            if (item.qty > 0)
-            {
+            if (item.qty > 0) {
                 tot = tot + item.qty;
-            }            
+            }
         }
         for (i = 0; i < ctrl.desserts.length; i++) {
             var item = ctrl.desserts[i];
@@ -48,9 +122,9 @@ function placeOrder($scope, $rootScope, $location, retrieveData) {
                 tot = tot + item.qty;
             }
         }
-        ctrl.totalQty =  tot;
+        ctrl.totalQty = tot;
 
-    
+
         var totPrice = 0;
         for (i = 0; i < ctrl.main.length; i++) {
             var item = ctrl.main[i];
@@ -64,18 +138,18 @@ function placeOrder($scope, $rootScope, $location, retrieveData) {
                 totPrice = totPrice + item.qty * item.price;
             }
         }
-        ctrl.totalPrice= totPrice;
+        ctrl.totalPrice = totPrice;
     }
 
     ctrl.add = function (item) {
-        item.qty = item.qty + 1;        
+        item.qty = item.qty + 1;
         ctrl.calc();
 
     }
     ctrl.remove = function (item) {
         if (item.qty > 0) {
-            item.qty = item.qty - 1;            
-        }        
+            item.qty = item.qty - 1;
+        }
         ctrl.calc();
     }
     ctrl.goToCheckout = function () {

@@ -28,63 +28,60 @@
     }
 </style>
 
-<ion-content class="padding">
-    <div class="row">
-        <div class="col">
-            Confirmation
-        </div>
-    </div>
+<ion-header-bar align-title="center" class="bar bar-header bar-stable">
+    <h1 class="title">Confirmation</h1>
+</ion-header-bar>
+
+
+
+<ion-content class="has-header">
+    <b>Order items</b>
     <ion-list>
-        <ion-item class="item item-divider">
-            Ordered Items
-        </ion-item>
         <ion-item ng-repeat="item in ctrl.cartItems" class="item">
             <div class="row">
                 <div class="col col-50">
-                    {{item.name}}
+                    <p class="alignleft" style="font-size:medium">{{item.name}}</p>
                 </div>
-                <div class="col">
-                    {{item.qty}}
+                <div class="col col-25">
+                    <p class="alignright" style="font-size:medium">{{item.qty}}</p>
                 </div>
-                <div class="col">
-                    &pound;{{item.price | number:2}}
+                <div class="col col-25">
+                    <p class="alignright"  style="font-size:medium">&pound;{{item.price | number:2}}</p>
                 </div>
             </div>
     </ion-list>
-    Total Price {{ctrl.totalPrice}}
-
-
+    <span class="alignright"><b>Total Price &pound;{{ctrl.totalPrice}}</b></span>
+    <br />
+    <hr />
+    <span ><b>Customer information</b></span>
     <div class="list">
         <label class="item item-input item-stacked-label">
-            <span class="input-label">First Name</span>
-            <input type="text" ng-model="ctrl.user.firstName">
+            <span class="input-label" style="font-size:medium">First Name</span>
+            <span class="input-label" style="font-size:medium">{{ctrl.user.firstName}}</span>
         </label>
         <label class="item item-input item-stacked-label">
-            <span class="input-label">Last Name</span>
-            <input type="text" ng-model="ctrl.user.lastName">
+            <span class="input-label" style="font-size:medium">Last Name</span>
+            <span class="input-label" style="font-size:medium">{{ctrl.user.lastName}}</span>
         </label>
         <label class="item item-input item-stacked-label">
-            <span class="input-label">Phone number</span>
-            <input type="text" ng-model="ctrl.user.phone">
+            <span class="input-label" style="font-size:medium">Phone number</span>
+            <span class="input-label" style="font-size:medium">{{ctrl.user.phone}}</span>
         </label>
         <label class="item item-input item-stacked-label">
-            <span class="input-label">Address Line 1</span>
-            <input type="text" ng-model="ctrl.user.addrLine1">
+            <span class="input-label" style="font-size:medium">Address Line 1</span>
+            <span class="input-label" style="font-size:medium">{{ctrl.user.addrLine1}}</span>
         </label>
         <label class="item item-input item-stacked-label">
-            <span class="input-label">Address Line 2</span>
-            <input type="text" ng-model="ctrl.user.addrLine2">
+            <span class="input-label" style="font-size:medium">Address Line 2</span>
+            <span class="input-label" style="font-size:medium">{{ctrl.user.addrLine2}}</span>
         </label>
         <label class="item item-input item-stacked-label">
-            <span class="input-label">Postcode</span>
-            <input type="text" ng-model="ctrl.user.postcode">
+            <span class="input-label" style="font-size:medium">Postcode</span>
+            <span class="input-label" style="font-size:medium">{{ctrl.user.postcode}}</span>
         </label>
     </div>
     <ion-spinner ng-hide="!ctrl.showLoader" icon="ripple" class="spinner-assertive"></ion-spinner>
     <div class="row">
-        
-        <button class="button" ng-hide="ctrl.showLoader" style="background-color:rgb(254,199,82);width:100%" ng-click="ctrl.goToOrderConfirmedPage()">Continue</button>
-
+        <button class="button" ng-hide="ctrl.showLoader" style="background-color:rgb(254,199,82);width:100%" ng-click="ctrl.goToOrderConfirmedPage()">Complete Order</button>
     </div>
-    
 </ion-content>
