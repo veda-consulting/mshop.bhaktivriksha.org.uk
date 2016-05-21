@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
  * Copyright 2015 Drifty Co.
  * http://drifty.com/
@@ -9040,7 +9040,8 @@ a.button {
   -moz-align-items: baseline;
   align-items: baseline; }
 
-/* .col-* vertically aligns an individual .col */
+/* 
+    -* vertically aligns an individual .col */
 .col-top {
   -webkit-align-self: flex-start;
   -moz-align-self: flex-start;
@@ -9135,6 +9136,15 @@ a.button {
   -ms-flex: 0 0 40%;
   flex: 0 0 40%;
   max-width: 40%; }
+
+.col-45 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 45%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 45%;
+  -ms-flex: 0 0 45%;
+  flex: 0 0 45%;
+  max-width: 45%; }
 
 .col-50 {
   -webkit-box-flex: 0;
@@ -9724,3 +9734,11 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+/*--Added styles to display text in left and right align - DP--*/
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
