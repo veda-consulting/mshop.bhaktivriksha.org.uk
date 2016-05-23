@@ -1,16 +1,15 @@
-﻿<ion-content class="padding">
+﻿<ion-header-bar align-title="center" class="bar bar-header bar-stable">
+    <a class="button icon-left ion-chevron-left button-clear button-dark" style="color:rgb(204,8,13)" ui-sref="home">Checkout</a>
+    <h1 class="title">Payment</h1>
+    <button class="button button-clear button-assertive">
+        <!--Added link back to home page - DP-->
+        <a class="button button-clear button-dark" style="color:rgb(204,8,13)" ui-sref="home">Cancel</a>
+    </button>
+</ion-header-bar>
 
-    <div class="row">
-        <div class="col">
-            <div class="bar bar-header bar-light" style="background-color:rgb(250,250,250)">
-                <a class="button icon-left ion-chevron-left button-clear button-dark" style="color:rgb(204,8,13)" ui-sref="home">Checkout</a>
-                <h1 class="title">Payment</h1>
-                <button class="button button-clear button-assertive">
-                    <b>Cancel</b>
-                </button>
-            </div>
-        </div>
-    </div>
+<ion-content class="padding">
+
+    
     <div class="row">
         <div class="col">
             <div class="list list-inset">
@@ -55,7 +54,7 @@
     </div>
     <div class="row" style="background-color:rgb(250,250,250)" ng-if="ctrl.paymentType=='PayByCard'">
         <div class="col">
-            <textarea sstyle="width:100%"></textarea>
+            <textarea style="width:100%"></textarea>
         </div>
     </div>
     <div class="row" ng-if="ctrl.paymentType=='PayByCard'">
@@ -93,7 +92,7 @@
 
     <div class="row" style="background-color:rgb(250,250,250)" ng-if="ctrl.paymentType=='PayByCard'">
         <div class="col">
-            <textarea sstyle="width:20%"></textarea>
+            <textarea style="width:20%"></textarea>
         </div>
     </div>
     <div class="row" ng-if="ctrl.paymentType=='PayByCard'">
@@ -113,11 +112,11 @@
     </div>
     <div class="row" style="background-color:rgb(250,250,250)" ng-if="ctrl.paymentType=='PayByCard'">
         <div class="col">
-            <textarea sstyle="width:100%"></textarea>
+            <textarea style="width:100%"></textarea>
         </div>
     </div>
     <div class="row">
-        <button class="button" style="background-color:rgb(254,199,82);width:100%" ng-click="ctrl.goToConfirmationPage()">Continue</button>
+        <button class="button" style="background-color:rgb(254,199,82);width:100%" ng-click="ctrl.goToConfirmationPage()" ng-disabled="ctrl.paymentType=='PayByCard'">Continue</button>
     </div>
 
 </ion-content>
