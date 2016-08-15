@@ -39,9 +39,9 @@
             </div>
             <div class="col col-30">
                 <div class="buttons color-orange">
-                    <button class="button" style="background-color:rgb(254,199,82);width:100%" ng-click="ctrl.goToCheckout()" ng-disabled="ctrl.totalQty == 0" >                        
+                    <button class="button" style="font-size:small;background-color:rgb(254,199,82);width:100%" ng-click="ctrl.goToCheckout()" ng-disabled="ctrl.totalQty == 0" >                        
                             <i class="ion-ios-cart-outline"></i>                        
-                    &pound;{{ctrl.totalPrice}}   ({{ctrl.totalQty}})
+                    &pound;{{ctrl.totalPrice.toFixed(2)}}   ({{ctrl.totalQty}})
                     </button>
                 </div>                
             </div>
@@ -73,14 +73,14 @@
                     &pound;{{item.price}}
                 </div>
                 <div class="col">
-                    <a class="" myclick="ctrl.add(item)">
+                    <a class="" ng-click="ctrl.add(item)">
                         <i class="ion-plus-circled customIconSound color-orange"></i>
                     </a>
                 </div>
             </div>
             <div class="row color-light-grey" ng-if="item.qty>0">
                 <div class="col col-5">
-                    <a class="" myclick="ctrl.remove(item)">
+                    <a class="" ng-click="ctrl.remove(item)">
                         <i class="ion-minus-circled customIconSound color-white"></i>
                     </a>
                 </div>
